@@ -1,13 +1,13 @@
 #!/bin/bash
 
-apt update
+sudo apt-get update
 
 # Install VirtualBox
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc -O- | apt-key add -
 sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-apt-get update
-apt-get install -y virtualbox-5.2 || /bin/true
-apt-get install -y -f
+sudo apt-get update
+sudo apt-get install -y virtualbox-5.2 || /bin/true
+sudo apt-get install -y -f
 
 # Install Virtualbox Extension Pack
 VBOX_VERSION=`dpkg -s virtualbox-5.2 | grep '^Version: ' | sed -e 's/Version: \([0-9\.]*\)\-.*/\1/'` ; \
